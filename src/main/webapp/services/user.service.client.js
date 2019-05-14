@@ -1,5 +1,12 @@
 function AdminUserServiceClient() {
-    this.createUser = createUser;
+    this.findAllUsersUrl = 'http://localhost:8080/users';
+    this.deleteUserUrl = 'http://localhost:8080/users/USER_ID';
+
+    this.createUser = function(user){
+        user.id
+    };
+
+
     this.findAllUsers = findAllUsers;
     this.findUserById = findUserById;
     this.deleteUser = deleteUser;

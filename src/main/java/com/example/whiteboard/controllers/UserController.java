@@ -14,16 +14,23 @@ import com.example.whiteboard.models.User;
 
 @RestController
 public class UserController {
-  List<User> usersList = new ArrayList<User>();
+  ArrayList<User> usersList = new ArrayList<User>();
 
   @GetMapping("/users")
-  public List<User> findAllUsers() {
+  public ArrayList<User> findAllUsers() {
     return usersList;
   }
 
   @DeleteMapping("/users/{userId}")
-  public User[] deleteUser(@PathVariable("userId") int userId) {
-    return null;
+  public ArrayList<User> deleteUser(@PathVariable("userId") int userId) {
+    ArrayList<User> temp = new ArrayList<>();
+    for (User user : usersList) {
+      if(userId != user.getId()) {
+        temp.add(user);
+      }
+    }
+    usersList = temp;
+    return usersList;
   }
 
   @PostMapping("/users")
