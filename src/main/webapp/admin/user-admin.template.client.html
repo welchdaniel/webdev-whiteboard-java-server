@@ -38,7 +38,8 @@
                 <td>
                     <input id="passwordFld"
                            class="form-control"
-                           placeholder="Password" />
+                           placeholder="Password"
+                           type="password"/>
                 </td>
                 <td>
                     <input id="firstNameFld"
@@ -60,9 +61,9 @@
                 </td>
                 <td>
                     <span class="float-right" style="white-space: nowrap">
-                        <i class="fa-2x fa fa-search wbdv-search"></i>
-                        <i class="fa-2x fa fa-plus wbdv-create"></i>
-                        <i class="fa-2x fa fa-check wbdv-update"></i>
+                        <button id="searchBtn" class="btn btn-secondary ">Search</button>
+                        <button id="updateBtn" class="btn btn-success ">Update</button>
+                        <button id="createBtn" class="btn btn-primary">Create</button>
                     </span>
                 </td>
             </tr>
@@ -75,12 +76,18 @@
                     <td class="wbdv-role">FACULTY</td>
                     <td class="wbdv-actions">
                         <span class="float-right">
-                          <i id="wbdv-remove" class="fa-2x fa fa-times wbdv-remove"></i>
-                          <i id="wbdv-edit" class="fa-2x fa fa-pencil wbdv-edit"></i>
+                            <button class="btn deleteBtn btn-danger">Delete</button>
+                            <button class="btn btn-warning">Edit</button>
                         </span>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                crossorigin="anonymous"></script>
+        <script src="../services/user.service.client.js"></script>
+        <script src="user-admin.component.client.js"></script>
     </body>
 </html>

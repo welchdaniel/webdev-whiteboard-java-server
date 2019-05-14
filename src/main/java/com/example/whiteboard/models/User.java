@@ -48,19 +48,13 @@ public class User {
   }
 
   public User(String username, String password, String firstName, String lastName) {
-    super();
     this.username = username;
     this.password = password;
     this.firstName = firstName;
     this.lastName = lastName;
   }
 
-  public User() {
-    super();
-  }
-
   public User(long id, String username, String password, String firstName, String lastName) {
-    super();
     this.id = id;
     this.username = username;
     this.password = password;
