@@ -65,8 +65,8 @@
         const usernameCol = row.find('.wbdv-username');
         const passwordCol = row.find('.wbdv-password');
         const firstNameCol = row.find('.wbdv-first-name');
-        const lastNameCol = row.find('wbdv-last-name');
-        const roleCol = row.find('wbdv-role');
+        const lastNameCol = row.find('.wbdv-last-name');
+        const roleCol = row.find('.wbdv-role');
         const removeBtn = row.find('.removeBtn');
 
         removeBtn.click(deleteUser);
@@ -81,5 +81,13 @@
         tbody.append(row);
     }
     function renderUser(user) {}
-    function renderUsers(users) {}
+
+
+    function renderUsers(users) {
+        $("tbody").empty()
+        for(i in users) {
+            console.log(i);
+            appendUserToDom(users[i]);
+        }
+    }
 })();
