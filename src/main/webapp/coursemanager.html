@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Course Manager</title>
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+        <link rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+              integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+              crossorigin="anonymous">
+    </head>
+    <body>
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarNavDropdown">
+            <div class="bg-dark p-4">
+                <select>
+                    <option>
+                        <a href="./profile/profile.template.client.html">Profile</a>
+                        <a href="./admin/user-admin.template.client.html">User Admin</a>
+                    </option>
+                </select>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-primary">
+            <div class="container-fluid">
+                <div class="row">
+                    <button class="navbar-toggler"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#navbarNavDropdown">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand text-light font-weight-bold">Course Manager</a>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2"
+                               placeholder="New Course Title">
+                        <i class="fas fa-plus-circle fa-2x text-danger"></i>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>&nbsp</th>
+                    <th>Title</th>
+                    <th>Owned by</th>
+                    <th>Last modified by me</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <td class="course-icon">
+                        <i class="far fa-file-alt text-primary"></i>
+                    </td>
+                    <td class="course-title">
+                        CS5500 Software Engineering Graduate
+                    </td>
+                    <td class="course-owned-by">
+                        me
+                    </td>
+                    <td class="course-last-modified">
+                        6:45 PM
+                    </td>
+                    <td class="course-grid">
+                        &nbsp;
+                    </td>
+                    <td class="course-delete">
+                        <i class="fas fa-ban text-danger"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="course-icon">
+                        <i class="far fa-file-alt text-primary"></i>
+                    </td>
+                    <td class="course-title">
+                        CS4550 Software Engineering Undergraduate
+                    </td>
+                    <td class="course-owned-by">
+                        me
+                    </td>
+                    <td class="course-last-modified">
+                        6:40 PM
+                    </td>
+                    <td class="course-grid">
+                        &nbsp;
+                    </td>
+                    <td class="course-delete">
+                        <i class="fas fa-ban text-danger"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="course-icon">
+                        <i class="far fa-file-alt text-primary"></i>
+                    </td>
+                    <td class="course-title">
+                        CS4500 WebDev Undergraduate
+                    </td>
+                    <td class="course-owned-by">
+                        me
+                    </td>
+                    <td class="course-last-modified">
+                        6:38 PM
+                    </td>
+                    <td class="course-grid">
+                        &nbsp;
+                    </td>
+                    <td class="course-delete">
+                        <i class="fas fa-ban text-danger"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="course-icon">
+                        <i class="far fa-file-alt text-primary"></i>
+                    </td>
+                    <td class="course-title">
+                        CS5610 WebDev Graduate
+                    </td>
+                    <td class="course-owned-by">
+                        me
+                    </td>
+                    <td class="course-last-modified">
+                        6:38 PM
+                    </td>
+                    <td class="course-grid">
+                        &nbsp;
+                    </td>
+                    <td class="course-delete">
+                        <i class="fas fa-ban text-danger"></i>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="float-right">
+        <i class="fas fa-plus-circle fa-7x text-danger"></i>
+    </div>
+    </body>
+</html>
