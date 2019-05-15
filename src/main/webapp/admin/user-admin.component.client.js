@@ -10,11 +10,12 @@
     const $searchBtn = $('.searchBtn');
     const $updateBtn = $('.updateBtn');
     const $createBtn = $('.createBtn');
-    const $removeBtn = $('.removeBtn');
-    const $editBtn = $('.editBtn');
+    var $removeBtn = $('.removeBtn');
+    var $editBtn = $('.editBtn');
     const findAllUsersUrl = 'http://localhost:8080/users';
     const deleteUserUrl = 'http://localhost:8080/users/USER_ID';
-    const userService = new AdminUserServiceClient();
+    var selectedUserID;
+    var userService = new AdminUserServiceClient();
 
     $.ajax(findAllUsersUrl, {
         'success': handleUsers
@@ -23,16 +24,67 @@
     $(main);
 
     function main() {
+        $updateBtn.click(updateUser);
         $createBtn.click(createUser);
         $removeBtn.click(deleteUser);
+        $editBtn.click(findUserById);
     }
 
-    function createUser() { … }
-    function findAllUsers() { … }
-    function findUserById() { … }
-    function deleteUser() { … }
+    function createUser() {
+        console.log('Create User');
+        const username = $usernameFld.val();
+        const password = $passwordFld.val();
+        const firstName = $firstNameFld.val();
+        const lastName = $lastNameFld.val();
+        const role = $roleFld.val();
+        console.log(username, password, firstName, lastName, role);
+
+        const user = {
+            username: username,
+            password: password,
+            firstName: firstName,
+            lastName: lastName,
+            role: role
+        }
+        userService.createUser(user).then(renderUsers);
+    }
+
+    function findAllUsers() {
+        const allUsers = userService.findAllUsers();
+        renderUsers(allUsers);
+    }
+
+    function findUserById() {
+        var editBtn = $(event.currentTarget);
+        selectedUserID = editBtn.attr("id");
+        const foundUser = userService.findUserById();
+        renderUser(foundUser);
+    }
+    function deleteUser(event) { … }
     function selectUser() { … }
     function updateUser() { … }
-    function renderUser(user) { … }
-    function renderUsers(users) { … }
+
+    function appendUserToDom(user) {
+        const row = userRowTemplate.clone();
+        row.removeClass('wbdv-hidden');
+        const usernameCol = row.find('.wbdv-username');
+        const passwordCol = row.find('.wbdv-password');
+        const firstNameCol = row.find('.wbdv-first-name');
+        const lastNameCol = row.find('wbdv-last-name');
+        const roleCol = row.find('wbdv-role');
+        const removeBtn = row.find('.removeBtn');
+
+        removeBtn.click(deleteUser);
+        removeBtn.attr('id', user.id);
+
+        usernameCol.html(user.username);
+        passwordCol.html(user.password);
+        firstNameCol.html(user.firstName);
+        lastNameCol.html(user.lastName);
+        roleCol.html(user.role);
+
+        tbody.append(row);
+    }
+    function renderUser(user) {}
+    function renderUsers(users) {}
 })();

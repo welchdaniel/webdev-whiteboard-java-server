@@ -16,7 +16,7 @@ import com.example.whiteboard.models.User;
 public class UserController {
   ArrayList<User> usersList = new ArrayList<User>();
 
-  @GetMapping("/users")
+  @GetMapping("/users/find")
   public ArrayList<User> findAllUsers() {
     return usersList;
   }
@@ -33,7 +33,7 @@ public class UserController {
     return usersList;
   }
 
-  @PostMapping("/users")
+  @PostMapping("/users/create")
   public List<User> createUser(@RequestBody User user) {
     usersList.add(user);
     return usersList;
