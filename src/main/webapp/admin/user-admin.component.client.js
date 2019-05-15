@@ -41,12 +41,11 @@
             lastName: lastName,
             role: role
         }
-        userService.createUser(user).then(renderUsers);
+        userService.createUser(user).then(findAllUsers);
     }
 
     function findAllUsers() {
-        const allUsers = userService.findAllUsers();
-        renderUsers(allUsers);
+        userService.findAllUsers().then(renderUsers);
     }
 
     function findUserById() {

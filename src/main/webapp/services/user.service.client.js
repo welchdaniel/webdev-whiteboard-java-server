@@ -1,5 +1,5 @@
 function AdminUserServiceClient() {
-    this.findAllUsersUrl = 'http://localhost:8080/users';
+    this.findAllUsersUrl = 'http://localhost:8080/users/find';
     this.deleteUserUrl = 'http://localhost:8080/users/USER_ID';
     this.createUserUrl = 'http://localhost:8080/users/create';
 
@@ -18,7 +18,17 @@ function AdminUserServiceClient() {
     };
 
 
-    this.findAllUsers = findAllUsers;
+    this.findAllUsers = function(){
+        return fetch(this.findAllUsersUrl, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function(response) {
+            return response.json();
+        })
+    };
+
     this.findUserById = findUserById;
     this.deleteUser = deleteUser;
     this.updateUser = updateUser;
