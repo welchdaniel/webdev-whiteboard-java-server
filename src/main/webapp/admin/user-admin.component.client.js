@@ -1,5 +1,4 @@
 (function () {
-    const $createBtn = $('#createBtn');
     const $usernameFld = $('#usernameFld');
     const $passwordFld = $('#passwordFld');
     const $firstNameFld = $('#firstNameFld');
@@ -7,19 +6,15 @@
     const $roleFld = $('#roleFld');
     const userRowTemplate = $('.wbdv-template');
     const tbody = $('tbody');
-    const $searchBtn = $('.searchBtn');
-    const $updateBtn = $('.updateBtn');
-    const $createBtn = $('.createBtn');
+    const $searchBtn = $('#searchBtn');
+    const $updateBtn = $('#updateBtn');
+    const $createBtn = $('#createBtn');
     var $removeBtn = $('.removeBtn');
     var $editBtn = $('.editBtn');
     const findAllUsersUrl = 'http://localhost:8080/users';
     const deleteUserUrl = 'http://localhost:8080/users/USER_ID';
     var selectedUserID;
     var userService = new AdminUserServiceClient();
-
-    $.ajax(findAllUsersUrl, {
-        'success': handleUsers
-    })
 
     $(main);
 
@@ -60,9 +55,9 @@
         const foundUser = userService.findUserById();
         renderUser(foundUser);
     }
-    function deleteUser(event) { … }
-    function selectUser() { … }
-    function updateUser() { … }
+    function deleteUser(event) {}
+    function selectUser() {}
+    function updateUser() {}
 
     function appendUserToDom(user) {
         const row = userRowTemplate.clone();

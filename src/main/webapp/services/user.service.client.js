@@ -1,11 +1,12 @@
 function AdminUserServiceClient() {
     this.findAllUsersUrl = 'http://localhost:8080/users';
     this.deleteUserUrl = 'http://localhost:8080/users/USER_ID';
+    this.createUserUrl = 'http://localhost:8080/users/create';
 
     this.createUser = function(user){
         user.id = (new Date()).getTime();
         console.log(user);
-        return fetch("http://localhost:8080/users/create", {
+        return fetch(this.createUserUrl, {
             method: 'POST',
             body: JSON.stringify(user),
             headers: {

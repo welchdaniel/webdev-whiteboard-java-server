@@ -1,16 +1,28 @@
 package com.example.whiteboard.models;
 
 public class User {
-  private enum Role {FACULTY, STUDENT, ADMIN}
 
   private long id;
   private String username;
   private String password;
   private String firstName;
   private String lastName;
-  private Role role;
+  private String role;
 
-  public User(String username, String password, String firstName, String lastName, Role role) {
+  public User() {
+    super();
+  }
+
+  public User(String username, String password, String firstName, String lastName) {
+    super();
+    this.username = username;
+    this.password = password;
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  public User(String username, String password, String firstName, String lastName, String role) {
+    super();
     this.username = username;
     this.password = password;
     this.firstName = firstName;
@@ -18,19 +30,14 @@ public class User {
     this.role = role;
   }
 
-  public User(String username, String password, String firstName, String lastName) {
-    this.username = username;
-    this.password = password;
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
-
-  public User(long id, String username, String password, String firstName, String lastName) {
+  public User(long id, String username, String password, String firstName, String lastName, String role) {
+    super();
     this.id = id;
     this.username = username;
     this.password = password;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.role = role;
   }
 
   public long getId() {
@@ -71,5 +78,13 @@ public class User {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
+  }
+
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
   }
 }
