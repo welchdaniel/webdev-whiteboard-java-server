@@ -22,7 +22,7 @@ public class UserController {
   }
 
   @DeleteMapping("/users/{userId}")
-  public ArrayList<User> deleteUser(@PathVariable("userId") int userId) {
+  public ArrayList<User> deleteUser(@PathVariable("userId") long userId) {
     ArrayList<User> temp = new ArrayList<>();
     for (User user : usersList) {
       if(userId != user.getId()) {

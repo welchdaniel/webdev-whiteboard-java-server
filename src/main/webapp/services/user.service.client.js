@@ -30,7 +30,13 @@ function AdminUserServiceClient() {
     };
 
     this.findUserById = findUserById;
-    this.deleteUser = deleteUser;
+    this.deleteUser = function(deleteURL){
+        return fetch(deleteURL, {
+            method: 'DELETE'
+        }).then(function(response) {
+            return response.json();
+        })
+    };
     this.updateUser = updateUser;
     this.url = 'http://localhost:8080/api/user';
     var self = this;

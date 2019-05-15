@@ -54,7 +54,16 @@
         const foundUser = userService.findUserById();
         renderUser(foundUser);
     }
-    function deleteUser(event) {}
+
+    function deleteUser(event) {
+        deleteBtn = $(event.currentTarget);
+        const id = deleteBtn.attr('id');
+        console.log(id);
+        const url = deleteUserUrl.replace('USER_ID', id);
+        console.log(url);
+        userService.deleteUser(url).then(findAllUsers);
+    }
+
     function selectUser() {}
     function updateUser() {}
 
@@ -82,6 +91,7 @@
 
         tbody.append(row);
     }
+
     function renderUser(user) {}
 
 
