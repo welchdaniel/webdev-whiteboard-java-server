@@ -62,7 +62,6 @@
         const row = userRowTemplate.clone();
         row.removeClass('wbdv-hidden');
         const usernameCol = row.find('.wbdv-username');
-        const passwordCol = row.find('.wbdv-password');
         const firstNameCol = row.find('.wbdv-first-name');
         const lastNameCol = row.find('.wbdv-last-name');
         const roleCol = row.find('.wbdv-role');
@@ -72,10 +71,14 @@
         removeBtn.attr('id', user.id);
 
         usernameCol.html(user.username);
-        passwordCol.html(user.password);
         firstNameCol.html(user.firstName);
         lastNameCol.html(user.lastName);
         roleCol.html(user.role);
+
+        $usernameFld.val("");
+        $passwordFld.val("");
+        $firstNameFld.val("");
+        $lastNameFld.val("");
 
         tbody.append(row);
     }
