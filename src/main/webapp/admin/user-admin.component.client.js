@@ -59,7 +59,6 @@
         userService.deleteUser(id).then(findAllUsers);
     }
 
-    function selectUser() {}
     function updateUser() {
         var updateBtn = $(event.currentTarget);
         userID = updateBtn.attr("value");
