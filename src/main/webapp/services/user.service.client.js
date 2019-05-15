@@ -1,9 +1,9 @@
 function AdminUserServiceClient() {
-    this.findAllUsersUrl = 'http://localhost:8080/users/find';
-    this.deleteUserUrl = 'http://localhost:8080/users/USER_ID';
-    this.createUserUrl = 'http://localhost:8080/users/create';
-    this.getUserUrl = 'http://localhost:8080/users/find/USER_ID';
-    this.putUserURL = 'http://localhost:8080/users/put/USER_ID';
+    this.findAllUsersUrl = 'https://webdev-su19-dwelch-server-java.herokuapp.com/users/find';
+    this.deleteUserUrl = 'https://webdev-su19-dwelch-server-java.herokuapp.com/users/USER_ID';
+    this.createUserUrl = 'https://webdev-su19-dwelch-server-java.herokuapp.com/users/create';
+    this.getUserUrl = 'https://webdev-su19-dwelch-server-java.herokuapp.com/users/find/USER_ID';
+    this.putUserURL = 'https://webdev-su19-dwelch-server-java.herokuapp.com/users/put/USER_ID';
 
     this.createUser = function(user){
         user.id = (new Date()).getTime();
