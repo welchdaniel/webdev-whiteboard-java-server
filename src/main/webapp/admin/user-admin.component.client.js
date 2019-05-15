@@ -60,7 +60,29 @@
     }
 
     function selectUser() {}
-    function updateUser() {}
+    function updateUser() {
+        var updateBtn = $(event.currentTarget);
+        userID = updateBtn.attr("value");
+        updateBtn.attr('value', "0");
+
+        console.log('Update User');
+        const username = $usernameFld.val();
+        const password = $passwordFld.val();
+        const firstName = $firstNameFld.val();
+        const lastName = $lastNameFld.val();
+        const role = $roleFld.val();
+        console.log(username, password, firstName, lastName, role);
+
+        const userNew = {
+            username: username,
+            password: password,
+            firstName: firstName,
+            lastName: lastName,
+            role: role
+        }
+
+        userService.updateUser(userNew,userID).then(findAllUsers);
+    }
 
     function appendUserToDom(user) {
         const row = userRowTemplate.clone();
@@ -95,7 +117,9 @@
         $passwordFld.val(user.password);
         $firstNameFld.val(user.firstName);
         $lastNameFld.val(user.lastName);
-        roleFld.val(user.role);
+        $roleFld.val(user.role);
+        const updateBtn = $('#updateBtn');
+        updateBtn.attr('value', user.id);
     }
 
 

@@ -3,6 +3,7 @@ function AdminUserServiceClient() {
     this.deleteUserUrl = 'http://localhost:8080/users/USER_ID';
     this.createUserUrl = 'http://localhost:8080/users/create';
     this.getUserUrl = 'http://localhost:8080/users/find/USER_ID';
+    this.putUserURL = 'http://localhost:8080/users/put/USER_ID';
 
     this.createUser = function(user){
         user.id = (new Date()).getTime();
@@ -50,7 +51,21 @@ function AdminUserServiceClient() {
             return response.json();
         })
     };
-    this.updateUser = updateUser;
+
+    this.updateUser = function(user,putID) {
+        const putURL = this.putUserURL.replace('USER_ID', putID);
+        return fetch(putURL, {
+            method: 'PUT',
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function(response) {
+            return response.json();
+        })
+    };
+
+
     this.url = 'http://localhost:8080/api/user';
     var self = this;
     function createUser(user, callback) {}
