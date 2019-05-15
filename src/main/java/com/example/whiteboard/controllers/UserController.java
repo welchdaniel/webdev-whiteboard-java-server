@@ -21,6 +21,16 @@ public class UserController {
     return usersList;
   }
 
+  @GetMapping("/users/find/{userId}")
+  public User findUserById(@PathVariable("userId") long userId) {
+    for (User user : usersList) {
+      if(userId == user.getId()) {
+        return user;
+      }
+    }
+    return null;
+  }
+
   @DeleteMapping("/users/{userId}")
   public ArrayList<User> deleteUser(@PathVariable("userId") long userId) {
     ArrayList<User> temp = new ArrayList<>();

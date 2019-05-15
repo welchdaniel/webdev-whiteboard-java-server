@@ -51,8 +51,7 @@
     function findUserById() {
         var editBtn = $(event.currentTarget);
         selectedUserID = editBtn.attr("id");
-        const foundUser = userService.findUserById();
-        renderUser(foundUser);
+        userService.findUserById(selectedUserID).then(renderUser);
     }
 
     function deleteUser(event) {
@@ -75,9 +74,12 @@
         const lastNameCol = row.find('.wbdv-last-name');
         const roleCol = row.find('.wbdv-role');
         const removeBtn = row.find('.removeBtn');
+        const editBtn = row.find('.editBtn');
 
         removeBtn.click(deleteUser);
+        editBtn.click(findUserById);
         removeBtn.attr('id', user.id);
+        editBtn.attr('id', user.id);
 
         usernameCol.html(user.username);
         firstNameCol.html(user.firstName);
@@ -92,7 +94,13 @@
         tbody.append(row);
     }
 
-    function renderUser(user) {}
+    function renderUser(user) {
+        $usernameFld.val(user.username);
+        $passwordFld.val(user.password);
+        $firstNameFld.val(user.firstName);
+        $lastNameFld.val(user.lastName);
+        roleFld.val(user.role);
+    }
 
 
     function renderUsers(users) {
