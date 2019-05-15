@@ -42,7 +42,8 @@ function AdminUserServiceClient() {
         })
     };
 
-    this.deleteUser = function(deleteURL){
+    this.deleteUser = function(deleteID){
+        const deleteURL = this.deleteUserUrl.replace('USER_ID', deleteID);
         return fetch(deleteURL, {
             method: 'DELETE'
         }).then(function(response) {

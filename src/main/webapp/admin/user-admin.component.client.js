@@ -11,8 +11,6 @@
     const $createBtn = $('#createBtn');
     var $removeBtn = $('.removeBtn');
     var $editBtn = $('.editBtn');
-    const findAllUsersUrl = 'http://localhost:8080/users';
-    const deleteUserUrl = 'http://localhost:8080/users/USER_ID';
     var selectedUserID;
     var userService = new AdminUserServiceClient();
 
@@ -58,9 +56,7 @@
         deleteBtn = $(event.currentTarget);
         const id = deleteBtn.attr('id');
         console.log(id);
-        const url = deleteUserUrl.replace('USER_ID', id);
-        console.log(url);
-        userService.deleteUser(url).then(findAllUsers);
+        userService.deleteUser(id).then(findAllUsers);
     }
 
     function selectUser() {}
