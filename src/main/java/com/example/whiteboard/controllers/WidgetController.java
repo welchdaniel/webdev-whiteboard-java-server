@@ -11,8 +11,8 @@ public class WidgetController {
     static List<Widget> widgets = new ArrayList<Widget>();
     static {
         widgets.add(new Widget(123, "Widget 1", "HEADING"));
-        widgets.add(new Widget(234, "Widget 2", "HEADING"));
-        widgets.add(new Widget(456, "Widget 3", "HEADING"));
+        widgets.add(new Widget(234, "Widget 2", "LIST"));
+        widgets.add(new Widget(456, "Widget 3", "PARAGRAPH"));
     }
 
     @PostMapping("/api/widgets")
