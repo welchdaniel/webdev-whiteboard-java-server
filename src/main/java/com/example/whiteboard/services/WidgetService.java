@@ -7,23 +7,33 @@ import java.util.List;
 
 public class WidgetService {
     static List<Widget> widgets = new ArrayList<Widget>();
-    static {
+
+    static WidgetService myInstance = null;
+
+    public static WidgetService getInstance() {
+        if (myInstance == null){
+            myInstance = new WidgetService();
+        }
+        return myInstance;
+    }
+
+    private WidgetService() {
         widgets.add(new Widget(123, "Widget 1", "HEADING"));
         widgets.add(new Widget(234, "Widget 2", "LIST"));
         widgets.add(new Widget(345, "Widget 3", "PARAGRAPH"));
         widgets.add(new Widget(456, "Widget 4", "IMAGE"));
     }
 
-    List<Widget> createWidget(Widget widget) {
+    public List<Widget> createWidget(Widget widget) {
         widgets.add(widget);
         return widgets;
     }
 
-    List<Widget> findAllWidgets() {
+    public List<Widget> findAllWidgets() {
         return widgets;
     }
 
-    Widget findWidgetById(Integer wid) {
+    public Widget findWidgetById(Integer wid) {
         for(Widget w: widgets) {
             if(w.getId().equals(wid)) {
                 return w;
@@ -32,7 +42,7 @@ public class WidgetService {
         return null;
     }
 
-    Widget updateWidget(Integer wid, Widget widget) {
+    public Widget updateWidget(Integer wid, Widget widget) {
         List<Widget> temp = new ArrayList<Widget>();
         for(Widget w: widgets) {
             if(w.getId().equals(wid)) {
@@ -46,7 +56,7 @@ public class WidgetService {
         return widget;
     }
 
-    void deleteWidget(Integer wid) {
+    public void deleteWidget(Integer wid) {
         List<Widget> temp = new ArrayList<Widget>();
         for(Widget w: widgets) {
             if(!w.getId().equals(wid)) {

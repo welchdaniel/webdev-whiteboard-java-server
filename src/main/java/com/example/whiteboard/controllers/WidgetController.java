@@ -1,50 +1,37 @@
 package com.example.whiteboard.controllers;
 
 import com.example.whiteboard.models.Widget;
+import com.example.whiteboard.services.WidgetService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class WidgetController {
-    static List<Widget> widgets = new ArrayList<Widget>();
-    static {
-        widgets.add(new Widget(123, "Widget 1", "HEADING"));
-        widgets.add(new Widget(234, "Widget 2", "LIST"));
-        widgets.add(new Widget(456, "Widget 3", "PARAGRAPH"));
-    }
+    static WidgetService widgetService = WidgetService.getInstance();
 
     @PostMapping("/api/widgets")
     public List<Widget> createWidget(@RequestBody Widget widget) {
-        widgets.add(widget);
-        return widgets;
+        return widgetService.createWidget(widget);
     }
 
     @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {
-        return widgets;
+        return widgetService.findAllWidgets();
     }
 
     @GetMapping("/api/widgets/{widgetId}")
     public Widget findWidgetById(@PathVariable("widgetId") Integer wid) {
-        for(Widget w : widgets) {
-            if(w.getId().equals(wid)) {
-                return w;
-            }
-        }
-        return null;
+        return widgetService.findWidgetById(wid);
     }
 
     @PutMapping("/api/widgets/{widgetId}")
     public Widget updateWidget(@PathVariable("widgetId") Integer wid, @RequestBody Widget widget){
-        return widget;
+        return widgetService.updateWidget(wid, widget);
     }
 
     @DeleteMapping("/api/widgets/{widgetId}")
     public void deleteWidget(@PathVariable("widgetId") Integer wid) {
-        return;
+        widgetService.deleteWidget(wid);
     }
-
-
 }
