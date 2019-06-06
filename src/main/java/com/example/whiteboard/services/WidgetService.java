@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WidgetService {
-    static List<Widget> widgets = new ArrayList<Widget>();
+    private List<Widget> widgets = new ArrayList<Widget>();
 
     static WidgetService myInstance = null;
 
@@ -18,23 +18,27 @@ public class WidgetService {
     }
 
     private WidgetService() {
-        widgets.add(new Widget(123, "Widget 1", "HEADING"));
-        widgets.add(new Widget(234, "Widget 2", "LIST"));
-        widgets.add(new Widget(345, "Widget 3", "PARAGRAPH"));
-        widgets.add(new Widget(456, "Widget 4", "IMAGE"));
+        this.init();
+    }
+
+    private void init() {
+        this.widgets.add(new Widget(123, "Widget 1", "HEADING"));
+        this.widgets.add(new Widget(234, "Widget 2", "LIST"));
+        this.widgets.add(new Widget(345, "Widget 3", "PARAGRAPH"));
+        this.widgets.add(new Widget(456, "Widget 4", "IMAGE"));
     }
 
     public List<Widget> createWidget(Widget widget) {
-        widgets.add(widget);
-        return widgets;
+        this.widgets.add(widget);
+        return this.widgets;
     }
 
     public List<Widget> findAllWidgets() {
-        return widgets;
+        return this.widgets;
     }
 
     public Widget findWidgetById(Integer wid) {
-        for(Widget w: widgets) {
+        for(Widget w: this.widgets) {
             if(w.getId().equals(wid)) {
                 return w;
             }
@@ -44,7 +48,7 @@ public class WidgetService {
 
     public Widget updateWidget(Integer wid, Widget widget) {
         List<Widget> temp = new ArrayList<Widget>();
-        for(Widget w: widgets) {
+        for(Widget w: this.widgets) {
             if(w.getId().equals(wid)) {
                 temp.add(widget);
             }
@@ -52,17 +56,17 @@ public class WidgetService {
                 temp.add(w);
             }
         }
-        widgets = temp;
+        this.widgets = temp;
         return widget;
     }
 
     public void deleteWidget(Integer wid) {
         List<Widget> temp = new ArrayList<Widget>();
-        for(Widget w: widgets) {
+        for(Widget w: this.widgets) {
             if(!w.getId().equals(wid)) {
                 temp.add(w);
             }
         }
-        widgets = temp;
+        this.widgets = temp;
     }
 }
