@@ -22,10 +22,10 @@ public class WidgetService {
     }
 
     private void init() {
-        this.widgets.add(new Widget(123, "Widget 1", "HEADING"));
-        this.widgets.add(new Widget(234, "Widget 2", "LIST"));
-        this.widgets.add(new Widget(345, "Widget 3", "PARAGRAPH"));
-        this.widgets.add(new Widget(456, "Widget 4", "IMAGE"));
+        this.widgets.add(new Widget(123L, "Widget 1", "HEADING"));
+        this.widgets.add(new Widget(234L, "Widget 2", "LIST"));
+        this.widgets.add(new Widget(345L, "Widget 3", "PARAGRAPH"));
+        this.widgets.add(new Widget(456L, "Widget 4", "IMAGE"));
     }
 
     public List<Widget> createWidget(Widget widget) {
@@ -37,7 +37,7 @@ public class WidgetService {
         return this.widgets;
     }
 
-    public Widget findWidgetById(Integer wid) {
+    public Widget findWidgetById(Long wid) {
         for(Widget w: this.widgets) {
             if(w.getId().equals(wid)) {
                 return w;
@@ -46,7 +46,7 @@ public class WidgetService {
         return null;
     }
 
-    public Widget updateWidget(Integer wid, Widget widget) {
+    public Widget updateWidget(Long wid, Widget widget) {
         List<Widget> temp = new ArrayList<Widget>();
         for(Widget w: this.widgets) {
             if(w.getId().equals(wid)) {
@@ -60,7 +60,7 @@ public class WidgetService {
         return widget;
     }
 
-    public void deleteWidget(Integer wid) {
+    public void deleteWidget(Long wid) {
         List<Widget> temp = new ArrayList<Widget>();
         for(Widget w: this.widgets) {
             if(!w.getId().equals(wid)) {

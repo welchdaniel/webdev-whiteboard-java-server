@@ -22,17 +22,17 @@ public class WidgetController {
     }
 
     @GetMapping("/api/widgets/{widgetId}")
-    public Widget findWidgetById(@PathVariable("widgetId") Integer wid) {
+    public Widget findWidgetById(@PathVariable("widgetId") Long wid) {
         return this.widgetService.findWidgetById(wid);
     }
 
     @PutMapping("/api/widgets/{widgetId}")
-    public Widget updateWidget(@PathVariable("widgetId") Integer wid, @RequestBody Widget widget){
+    public Widget updateWidget(@PathVariable("widgetId") Long wid, @RequestBody Widget widget){
         return this.widgetService.updateWidget(wid, widget);
     }
 
     @DeleteMapping("/api/widgets/{widgetId}")
-    public void deleteWidget(@PathVariable("widgetId") Integer wid) {
+    public void deleteWidget(@PathVariable("widgetId") Long wid) {
         this.widgetService.deleteWidget(wid);
     }
 }

@@ -1,7 +1,7 @@
 package com.example.whiteboard.models;
 
 public class Widget {
-    private Integer id;
+    private Long id;
     private String name;
     private String type;
     private Integer order;
@@ -15,7 +15,7 @@ public class Widget {
     private String value;
     private String dataType;
 
-    public Widget(Integer id, String name, String type, Integer order, String text,
+    public Widget(Long id, String name, String type, Integer order, String text,
                   String src, Integer size, Integer width, Integer height, String cssClass,
                   String style, String value, String dataType) {
         this.id = id;
@@ -33,7 +33,7 @@ public class Widget {
         this.dataType = dataType;
     }
 
-    public Widget(Integer id, String name, String type) {
+    public Widget(Long id, String name, String type) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -43,11 +43,11 @@ public class Widget {
 
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
