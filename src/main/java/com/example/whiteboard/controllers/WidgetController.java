@@ -27,12 +27,12 @@ public class WidgetController {
     }
 
     @PutMapping("/api/widgets/{widgetId}")
-    public Widget updateWidget(@PathVariable("widgetId") Long wid, @RequestBody Widget widget){
+    public List<Widget> updateWidget(@PathVariable("widgetId") Long wid, @RequestBody Widget widget){
         return this.widgetService.updateWidget(wid, widget);
     }
 
     @DeleteMapping("/api/widgets/{widgetId}")
-    public void deleteWidget(@PathVariable("widgetId") Long wid) {
-        this.widgetService.deleteWidget(wid);
+    public List<Widget> deleteWidget(@PathVariable("widgetId") Long wid) {
+        return this.widgetService.deleteWidget(wid);
     }
 }
