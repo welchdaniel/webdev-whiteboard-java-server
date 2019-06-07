@@ -22,10 +22,20 @@ public class WidgetService {
     }
 
     private void init() {
-        this.widgets.add(new Widget(123L, "Widget 1", "HEADING"));
+        this.widgets.add(new Widget(123L, "Widget 1", "HEADING",
+                1, "Sample Heading", null, 2, null,
+                null, null, null, null, null));
         this.widgets.add(new Widget(234L, "Widget 2", "LIST"));
-        this.widgets.add(new Widget(345L, "Widget 3", "PARAGRAPH"));
+        this.widgets.add(new Widget(345L, "Widget 3", "PARAGRAPH",
+                2, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac nisl magna. "
+                +"Vestibulum laoreet leo ante, quis dapibus odio rutrum nec. Suspendisse rutrum, "
+                +"nulla eu lacinia interdum, odio magna fringilla nisi, id convallis magna lectus semper lorem. "
+                +"Quisque et ligula nibh. Aenean ullamcorper lacus eu sem fringilla aliquet. "
+                +"Ut mattis turpis laoreet, tristique nibh sit amet, gravida metus. "
+                +"Etiam dignissim tortor eget efficitur malesuada.", null,
+                null, null, null, null, null, null, null));
         this.widgets.add(new Widget(456L, "Widget 4", "IMAGE"));
+        this.widgets.add(new Widget(789L, "Widget 5","HYPERLINK"));
     }
 
     public List<Widget> createWidget(Widget widget) {
