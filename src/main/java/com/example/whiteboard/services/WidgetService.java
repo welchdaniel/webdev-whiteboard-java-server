@@ -25,7 +25,6 @@ public class WidgetService {
         this.widgets.add(new Widget(123L, "Widget 1", "HEADING",
                 1, "Sample Heading", null, 2, null,
                 null, null, null, null, null));
-        this.widgets.add(new Widget(234L, "Widget 2", "LIST"));
         this.widgets.add(new Widget(345L, "Widget 3", "PARAGRAPH",
                 2, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac nisl magna. "
                 +"Vestibulum laoreet leo ante, quis dapibus odio rutrum nec. Suspendisse rutrum, "
@@ -34,8 +33,15 @@ public class WidgetService {
                 +"Ut mattis turpis laoreet, tristique nibh sit amet, gravida metus. "
                 +"Etiam dignissim tortor eget efficitur malesuada.", null,
                 null, null, null, null, null, null, null));
-        this.widgets.add(new Widget(456L, "Widget 4", "IMAGE"));
-        this.widgets.add(new Widget(789L, "Widget 5","HYPERLINK"));
+        this.widgets.add(new Widget(234L, "Widget 2", "LIST", 3,
+                "Item 1\nItem 2\nItem 3", null, null, null, null, null,
+                "ul", null, null));
+        this.widgets.add(new Widget(456L, "Widget 4", "IMAGE",
+                4, null, "https://picsum.photos/300/200", null, null,
+                null, null, null, null, null));
+        this.widgets.add(new Widget(789L, "Widget 5","HYPERLINK", 5,
+                "WebDevTV Youtube Channel", "https://www.youtube.com/channel/UCCgliN1n-OaiYJbZV8gypNA",
+                null, null, null, null, null, null, null));
     }
 
     public List<Widget> createWidget(Widget widget) {
