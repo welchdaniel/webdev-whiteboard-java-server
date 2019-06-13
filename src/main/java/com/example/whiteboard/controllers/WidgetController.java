@@ -2,6 +2,7 @@ package com.example.whiteboard.controllers;
 
 import com.example.whiteboard.models.Widget;
 import com.example.whiteboard.services.WidgetService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,30 +10,33 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 public class WidgetController {
-    private WidgetService widgetService = WidgetService.getInstance();
+
+    @Autowired
+    WidgetService service;
+
 
     @PostMapping("/api/widgets")
     public List<Widget> createWidget(@RequestBody Widget widget) {
-        return this.widgetService.createWidget(widget);
+        return service.createWidget(widget);
     }
 
     @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {
-        return this.widgetService.findAllWidgets();
+        return service.findAllWidgets();
     }
 
     @GetMapping("/api/widgets/{widgetId}")
-    public Widget findWidgetById(@PathVariable("widgetId") Long wid) {
-        return this.widgetService.findWidgetById(wid);
+    public Widget findWidgetById(@PathVariable("widgetId") Integer wid) {
+        return service.findWidgetById(wid);
     }
 
     @PutMapping("/api/widgets/{widgetId}")
-    public List<Widget> updateWidget(@PathVariable("widgetId") Long wid, @RequestBody Widget widget){
-        return this.widgetService.updateWidget(wid, widget);
+    public List<Widget> updateWidget(@PathVariable("widgetId") Integer wid, @RequestBody Widget widget){
+        return service.updateWidget(wid, widget);
     }
 
     @DeleteMapping("/api/widgets/{widgetId}")
-    public List<Widget> deleteWidget(@PathVariable("widgetId") Long wid) {
-        return this.widgetService.deleteWidget(wid);
+    public List<Widget> deleteWidget(@PathVariable("widgetId") Integer wid) {
+        return service.deleteWidget(wid);
     }
 }

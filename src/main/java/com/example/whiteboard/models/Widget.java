@@ -1,10 +1,16 @@
 package com.example.whiteboard.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="widgets")
 public class Widget {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer id;
     private String name;
     private String type;
-    private Integer order;
+    private Integer listOrder;
     private String text;
     private String src;
     private Integer size;
@@ -15,13 +21,13 @@ public class Widget {
     private String value;
     private String dataType;
 
-    public Widget(Long id, String name, String type, Integer order, String text,
+    public Widget(Integer id, String name, String type, Integer order, String text,
                   String src, Integer size, Integer width, Integer height, String cssClass,
                   String style, String value, String dataType) {
         this.id = id;
         this.name = name;
         this.type = type;
-        this.order = order;
+        this.listOrder = order;
         this.text = text;
         this.src = src;
         this.size = size;
@@ -33,7 +39,7 @@ public class Widget {
         this.dataType = dataType;
     }
 
-    public Widget(Long id, String name, String type) {
+    public Widget(Integer id, String name, String type) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -43,11 +49,11 @@ public class Widget {
 
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -68,11 +74,11 @@ public class Widget {
     }
 
     public Integer getOrder() {
-        return order;
+        return listOrder;
     }
 
     public void setOrder(Integer order) {
-        this.order = order;
+        this.listOrder = order;
     }
 
     public String getText() {
