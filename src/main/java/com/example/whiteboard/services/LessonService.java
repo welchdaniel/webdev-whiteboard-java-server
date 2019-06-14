@@ -31,6 +31,8 @@ public class LessonService {
         Optional<Lesson> optional = repository.findById(lid);
         Lesson updateLesson = optional.get();
         updateLesson.setTitle(lesson.getTitle());
+        updateLesson.setModule(lesson.getModule());
+        updateLesson.setTopics(lesson.getTopics());
         repository.save(updateLesson);
         return repository.findAllLessons();
     }

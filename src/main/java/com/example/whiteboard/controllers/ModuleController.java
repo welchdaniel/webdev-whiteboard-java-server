@@ -1,6 +1,8 @@
 package com.example.whiteboard.controllers;
 
+import com.example.whiteboard.models.Lesson;
 import com.example.whiteboard.models.Module;
+import com.example.whiteboard.services.LessonService;
 import com.example.whiteboard.services.ModuleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,9 @@ public class ModuleController {
 
     @Autowired
     ModuleService service;
+
+    @Autowired
+    LessonService lessonService;
 
 
     @PostMapping("/api/modules")
@@ -33,6 +38,16 @@ public class ModuleController {
     @PutMapping("/api/modules/{moduleId}")
     public List<Module> updateModule(@PathVariable("moduleId") Integer mid, @RequestBody Module module){
         return service.updateModule(mid, module);
+    }
+
+    @PutMapping("/api/modules/{moduleId}/lessons/{lessonId}")
+    public void addLessonUnderModule(
+            @PathVariable("moduleId") Integer moduleId,
+            @PathVariable("lessonId") Integer lessonId) {
+        Module module = service.findModuleById(moduleId);
+        Lesson lesson = lessonService.findLessonById(lessonId);
+        lesson.setModule(module);
+        lessonService.updateLesson(lessonId, lesson);
     }
 
     @DeleteMapping("/api/modules/{moduleId}")
