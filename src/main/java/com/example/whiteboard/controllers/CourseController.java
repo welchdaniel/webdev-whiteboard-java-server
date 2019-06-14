@@ -41,13 +41,14 @@ public class CourseController {
     }
 
     @PutMapping("/api/courses/{courseId}/modules/{moduleId}")
-    public void addModuleUnderCourse(
+    public Course addModuleUnderCourse(
             @PathVariable("courseId") Integer courseId,
             @PathVariable("moduleId") Integer moduleId) {
         Course course = service.findCourseById(courseId);
         Module module = moduleService.findModuleById(moduleId);
         module.setCourse(course);
         moduleService.updateModule(moduleId, module);
+        return course;
     }
 
     @DeleteMapping("/api/courses/{courseId}")
