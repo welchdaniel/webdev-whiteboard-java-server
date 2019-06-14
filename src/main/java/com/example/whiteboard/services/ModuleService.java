@@ -14,9 +14,8 @@ public class ModuleService {
     @Autowired
     ModuleRepository repository;
 
-    public List<Module> createModule(Module module) {
-        repository.save(module);
-        return repository.findAllModules();
+    public Module createModule(Module module) {
+        return repository.save(module);
     }
 
     public List<Module> findAllModules() {

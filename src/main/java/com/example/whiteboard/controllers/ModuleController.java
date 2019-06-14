@@ -21,7 +21,7 @@ public class ModuleController {
 
 
     @PostMapping("/api/modules")
-    public List<Module> createModule(@RequestBody Module module) {
+    public Module createModule(@RequestBody Module module) {
         return service.createModule(module);
     }
 
