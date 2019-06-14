@@ -21,13 +21,13 @@ public class Widget {
     private String value;
     private String dataType;
 
-    public Widget(Integer id, String name, String type, Integer order, String text,
+    public Widget(Integer id, String name, String type, Integer listOrder, String text,
                   String src, Integer size, Integer width, Integer height, String cssClass,
                   String style, String value, String dataType) {
         this.id = id;
         this.name = name;
         this.type = type;
-        this.listOrder = order;
+        this.listOrder = listOrder;
         this.text = text;
         this.src = src;
         this.size = size;
@@ -77,8 +77,8 @@ public class Widget {
         return listOrder;
     }
 
-    public void setOrder(Integer order) {
-        this.listOrder = order;
+    public void setOrder(Integer listOrder) {
+        this.listOrder = listOrder;
     }
 
     public String getText() {
