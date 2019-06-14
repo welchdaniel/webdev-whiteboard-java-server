@@ -32,7 +32,6 @@ public class ModuleService {
         Module updateModule = optional.get();
         updateModule.setTitle(module.getTitle());
         updateModule.setCourse(module.getCourse());
-        updateModule.setLessons(module.getLessons());
         repository.save(updateModule);
         return repository.findAllModules();
     }
