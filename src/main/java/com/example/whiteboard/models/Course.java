@@ -11,7 +11,7 @@ public class Course {
     private Integer id;
     private String title;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course", orphanRemoval=true)
     private List<Module> modules;
 
     public Course(Integer id, String title) {
