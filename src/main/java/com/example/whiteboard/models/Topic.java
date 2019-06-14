@@ -17,9 +17,10 @@ public class Topic {
     @JsonIgnore
     private Lesson lesson;
 
-    public Topic(Integer id, String title) {
+    public Topic(Integer id, String title, Lesson lesson) {
         this.id = id;
         this.title = title;
+        this.lesson = lesson;
     }
 
     public Topic() {
@@ -39,5 +40,13 @@ public class Topic {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
     }
 }

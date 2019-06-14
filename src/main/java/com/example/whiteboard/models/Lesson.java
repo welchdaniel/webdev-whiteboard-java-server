@@ -20,9 +20,11 @@ public class Lesson {
     @OneToMany(mappedBy = "lesson", orphanRemoval=true)
     private List<Topic> topics;
 
-    public Lesson(Integer id, String title) {
+    public Lesson(Integer id, String title, Module module, List<Topic> topics) {
         this.id = id;
         this.title = title;
+        this.module = module;
+        this.topics = topics;
     }
 
     public Lesson() {
@@ -42,5 +44,21 @@ public class Lesson {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Module getModule() {
+        return module;
+    }
+
+    public void setModule(Module module) {
+        this.module = module;
+    }
+
+    public List<Topic> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<Topic> topics) {
+        this.topics = topics;
     }
 }

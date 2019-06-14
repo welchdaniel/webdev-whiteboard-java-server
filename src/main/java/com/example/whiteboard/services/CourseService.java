@@ -31,6 +31,8 @@ public class CourseService {
         Optional<Course> optional = repository.findById(cid);
         Course updateCourse = optional.get();
         updateCourse.setTitle(course.getTitle());
+        updateCourse.setModifiedAt(course.getModifiedAt());
+        updateCourse.setModules(course.getModules());
         repository.save(updateCourse);
         return repository.findAllCourses();
     }
