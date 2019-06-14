@@ -3,11 +3,10 @@ package com.example.whiteboard.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name="modules")
-public class Module {
+@Table(name="lessons")
+public class Lesson {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
@@ -15,17 +14,14 @@ public class Module {
 
     @ManyToOne()
     @JsonIgnore
-    private Course course;
+    private Module module;
 
-    @OneToMany(mappedBy = "module")
-    private List<Lesson> lessons;
-
-    public Module(Integer id, String title) {
+    public Lesson(Integer id, String title) {
         this.id = id;
         this.title = title;
     }
 
-    public Module() {
+    public Lesson() {
     }
 
     public String getTitle() {
