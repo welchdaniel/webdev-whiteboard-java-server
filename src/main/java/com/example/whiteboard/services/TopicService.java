@@ -32,6 +32,7 @@ public class TopicService {
         Optional<Topic> optional = repository.findById(tid);
         Topic updateTopic = optional.get();
         updateTopic.setTitle(topic.getTitle());
+        updateTopic.setLesson(topic.getLesson());
         repository.save(updateTopic);
         return repository.findAllTopics();
     }
