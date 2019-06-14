@@ -3,6 +3,7 @@ package com.example.whiteboard.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="lessons")
@@ -15,6 +16,9 @@ public class Lesson {
     @ManyToOne()
     @JsonIgnore
     private Module module;
+
+    @OneToMany(mappedBy = "lesson")
+    private List<Topic> topics;
 
     public Lesson(Integer id, String title) {
         this.id = id;
