@@ -22,7 +22,7 @@ public class LessonController {
 
 
     @PostMapping("/api/lessons")
-    public List<Lesson> createLesson(@RequestBody Lesson lesson) {
+    public Lesson createLesson(@RequestBody Lesson lesson) {
         return service.createLesson(lesson);
     }
 

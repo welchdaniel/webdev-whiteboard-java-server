@@ -14,9 +14,8 @@ public class LessonService {
     @Autowired
     LessonRepository repository;
 
-    public List<Lesson> createLesson(Lesson lesson) {
-        repository.save(lesson);
-        return repository.findAllLessons();
+    public Lesson createLesson(Lesson lesson) {
+        return repository.save(lesson);
     }
 
     public List<Lesson> findAllLessons() {
